@@ -8,8 +8,27 @@ def spectral_slope(
     reflectance: np.ndarray,
     *,
     region_um: tuple[float, float],
+    weights: np.ndarray | None = None,
+    downweight_regions_um: list[tuple[float, float]] | None = None,
+    downweight_factor: float = 0.2,
 ) -> float:
-    """Compute a simple spectral slope using linear least squares in a region."""
+    """Compute a simple spectral slope using weighted linear least squares.
+
+    This is used as a compact proxy for spectral reddening (space weathering).
+    The implementation supports downweighting known-problem wavelength regions
+    (e.g., the ~1.34 µm instrument join).
+
+    Args:
+        wavelengths_um: Wavelength array in microns.
+        reflectance: Reflectance array shaped (bands,).
+        region_um: Inclusive wavelength region used for the fit.
+        weights: Optional per-band weights (same shape as reflectance).
+        downweight_regions_um: Optional list of wavelength intervals to downweight.
+        downweight_factor: Multiplicative factor applied inside downweight intervals.
+
+    Returns:
+        Slope (reflectance per micron).
+    """
 
     w = np.asarray(wavelengths_um, dtype=float)
     r = np.asarray(reflectance, dtype=float)
@@ -17,14 +36,36 @@ def spectral_slope(
     if np.count_nonzero(mask) < 3:
         return float("nan")
 
+    wts = np.ones_like(r, dtype=float) if weights is None else np.asarray(weights, dtype=float)
+    if wts.shape != r.shape:
+        raise ValueError("weights must have same shape as reflectance")
+
+    if downweight_regions_um:
+        for lo, hi in downweight_regions_um:
+            wts[(w >= float(lo)) & (w <= float(hi))] *= float(downweight_factor)
+
+    wts = np.where(np.isfinite(wts), wts, 0.0)
+    wts = np.clip(wts, 0.0, np.inf)
+    mask = mask & (wts > 0.0)
+    if np.count_nonzero(mask) < 3:
+        return float("nan")
+
     x = w[mask]
     y = r[mask]
-    x0 = x.mean()
-    denom = float(np.sum((x - x0) ** 2))
+    wt = wts[mask]
+
+    wt_sum = float(np.sum(wt))
+    if wt_sum <= 0.0:
+        return float("nan")
+
+    x0 = float(np.sum(wt * x) / wt_sum)
+    y0 = float(np.sum(wt * y) / wt_sum)
+
+    denom = float(np.sum(wt * (x - x0) ** 2))
     if denom <= 0.0:
         return float("nan")
 
-    m = float(np.sum((x - x0) * (y - y.mean())) / denom)
+    m = float(np.sum(wt * (x - x0) * (y - y0)) / denom)
     return m
 
 

@@ -1,6 +1,6 @@
 import numpy as np
 
-from lunar_m3.features import band_area, band_center, band_depth, extract_feature_table
+from lunar_m3.features import band_area, band_center, band_depth, detect_absorption_band, extract_feature_table
 
 
 def test_band_metrics_basic() -> None:
@@ -22,3 +22,13 @@ def test_extract_feature_table_shape() -> None:
     assert df.shape[0] == 12
     assert "bd_1um" in df.columns
     assert "bc_2um" in df.columns
+    assert "band1_left_um" in df.columns
+    assert "slope_global" in df.columns
+
+
+def test_detect_absorption_band_finds_minimum() -> None:
+    w = np.linspace(0.7, 1.4, 141)
+    rc = 1.0 - 0.12 * np.exp(-0.5 * ((w - 1.02) / 0.05) ** 2)
+    out = detect_absorption_band(w, rc, search_region_um=(0.85, 1.30), join_region_um=(1.325, 1.355))
+    assert 0.95 < out["band_center_um"] < 1.10
+    assert out["band_depth"] > 0.05

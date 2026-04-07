@@ -53,6 +53,9 @@ def read_envi_header(path: str | Path) -> EnviHeader:
         else:
             wavelengths_um = np.asarray([float(x) for x in str(wl).split(",") if x.strip()], dtype=np.float64)
 
+        if wavelengths_um.size > 0 and float(np.nanmedian(wavelengths_um)) > 50.0:
+            wavelengths_um = wavelengths_um / 1000.0
+
     return EnviHeader(
         samples=samples,
         lines=lines,

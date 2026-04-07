@@ -1,3 +1,6 @@
+.DS_Store
+data/m3_sample/
+artifacts*/
 .venv/
 __pycache__/
 *.pyc
