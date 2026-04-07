@@ -1,0 +1,63 @@
+# Lunar M³ Project
+
+Research-grade Python project scaffold for analyzing NASA Moon Mineralogy Mapper (M³) hyperspectral reflectance data.
+
+This repository starts with a synthetic development pipeline (so you can run everything immediately) and is structured so real M³ ingestion can replace the synthetic loader without changing downstream code.
+
+## Quickstart
+
+```bash
+cd lunar_m3_project
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
+pip install -e .
+pip install -e ".[dev]"
+```
+
+Run the end-to-end baseline pipeline (synthetic cube):
+
+```bash
+python scripts/run_pipeline.py --output-dir artifacts
+
+# Fe + Al-proxy report (synthetic cube)
+python scripts/run_fe_al_report.py --output-dir artifacts_fe_al
+```
+
+## Project layout
+
+- `src/lunar_m3/` contains the library code (import as `lunar_m3`).
+- `scripts/` contains runnable entrypoints.
+- `docs/` contains architecture, methodology, and roadmap.
+- `tests/` contains unit tests.
+
+## Using real data
+
+Phase 1 uses a synthetic cube and a simple `.npz` loader. It also supports many PDS Imaging Node ENVI-style `.HDR` + `.IMG` products.
+
+If you have files like `*_RDN.HDR` and `*_RDN.IMG`, you can load them directly:
+
+```python
+from lunar_m3.data_loading import load_m3_cube
+
+cube = load_m3_cube("/path/to/M3..._RDN.IMG")
+```
+
+To plug in other real M³ products, implement parsing in `src/lunar_m3/data_loading/m3_loader.py` and return an `M3Cube` instance with:
+
+- `data`: `float32` array shaped `(rows, cols, bands)`
+- `wavelengths`: `float64` array shaped `(bands,)` in microns
+
+Downstream modules only require the `M3Cube` API.
+
+## Reproducibility
+
+- Deterministic synthetic data generation using fixed random seeds.
+- Modeling uses fixed seeds where applicable.
+
+## Next steps
+
+See:
+- `docs/architecture.md`
+- `docs/methodology.md`
+- `docs/roadmap.md`
