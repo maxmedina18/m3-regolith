@@ -21,17 +21,14 @@ def generate_synthetic_cube(
     if wavelengths_um is None:
         wavelengths_um = np.linspace(0.62, 2.60, bands, dtype=np.float64)
 
-    labels = rng.integers(0, 3, size=(rows, cols), dtype=np.int32)
-
     base = np.zeros((rows, cols, bands), dtype=np.float32)
     for y in range(rows):
         for x in range(cols):
-            label = int(labels[y, x])
+            label = int(rng.integers(0, 3))
             spectrum = _synthetic_spectrum(wavelengths_um, label=label, rng=rng)
             base[y, x, :] = spectrum.astype(np.float32)
 
     cube = M3Cube(data=base, wavelengths=wavelengths_um)
-    cube.synthetic_labels = labels
     return cube
 
 
@@ -58,4 +55,3 @@ def _synthetic_spectrum(wavelengths_um: np.ndarray, *, label: int, rng: np.rando
 
 def _gaussian(w: np.ndarray, *, mu: float, sigma: float) -> np.ndarray:
     return np.exp(-0.5 * ((w - mu) / sigma) ** 2)
-

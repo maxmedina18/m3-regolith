@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
-
 import numpy as np
 
 from .pds3_envi import read_envi_header, read_envi_image
@@ -42,44 +40,27 @@ class M3Cube:
         return np.asarray(self.data[y, x, :], dtype=float).copy()
 
 
-def load_m3_cube(path: str | Path, *, allow_synthetic_fallback: bool = False) -> M3Cube:
+def load_m3_cube(path: str | Path) -> M3Cube:
     """Load an M³ cube.
 
-    Currently supported:
-    - `.npz` files containing `data` and `wavelengths` arrays.
-
-    If parsing fails and `allow_synthetic_fallback=True`, a synthetic cube is
-    generated. This is intended for development and tests; real-data workflows
-    should keep the default `allow_synthetic_fallback=False`.
+    Supported inputs:
+    - ENVI-style `.HDR` + `.IMG` products (common for PDS Imaging Node M³ cubes)
     """
 
     path_obj = Path(path)
-    if path_obj.suffix.lower() == ".npz":
-        return load_m3_cube_npz(path_obj)
+    if path_obj.suffix.lower() not in {".hdr", ".img"}:
+        raise ValueError(
+            "Real-data-first workflow requires an ENVI cube (.IMG/.HDR). "
+            f"Got: {path_obj}"
+        )
 
-    if path_obj.suffix.lower() in {".hdr", ".img"}:
-        hdr_path = path_obj if path_obj.suffix.lower() == ".hdr" else path_obj.with_suffix(".HDR")
-        img_path = path_obj if path_obj.suffix.lower() == ".img" else path_obj.with_suffix(".IMG")
-        header = read_envi_header(hdr_path)
-        data = read_envi_image(img_path, header)
-        wavelengths = header.wavelengths_um
-        if wavelengths is None:
-            raise ValueError(f"No wavelengths found in header: {hdr_path}")
-        return M3Cube(data=data, wavelengths=wavelengths)
-
-    if allow_synthetic_fallback:
-        from lunar_m3.dev.synthetic import generate_synthetic_cube
-
-        return generate_synthetic_cube(seed=0)
-
-    raise ValueError(f"Unsupported M3 input path: {path_obj}")
-
-
-def load_m3_cube_npz(path: str | Path) -> M3Cube:
-    """Load a cube stored as a `.npz` with arrays `data` and `wavelengths`."""
-
-    path_obj = Path(path)
-    with np.load(path_obj, allow_pickle=False) as npz:
-        data = np.asarray(npz["data"], dtype=np.float32)
-        wavelengths = np.asarray(npz["wavelengths"], dtype=np.float64)
+    hdr_path = path_obj if path_obj.suffix.lower() == ".hdr" else path_obj.with_suffix(".HDR")
+    img_path = path_obj if path_obj.suffix.lower() == ".img" else path_obj.with_suffix(".IMG")
+    header = read_envi_header(hdr_path)
+    data = read_envi_image(img_path, header)
+    wavelengths = header.wavelengths_um
+    if wavelengths is None:
+        raise ValueError(f"No wavelengths found in header: {hdr_path}")
     return M3Cube(data=data, wavelengths=wavelengths)
+
+

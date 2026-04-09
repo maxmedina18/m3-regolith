@@ -15,7 +15,7 @@ def main() -> None:
         "--input",
         type=str,
         required=True,
-        help="Path to an M3 cube (.IMG/.HDR or .npz).",
+        help="Path to an M3 cube (.IMG/.HDR).",
     )
     parser.add_argument("--output", type=str, default="data/processed/features.parquet")
     args = parser.parse_args()

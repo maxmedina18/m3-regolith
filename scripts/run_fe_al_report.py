@@ -29,7 +29,7 @@ def main() -> None:
         "--input",
         type=str,
         required=True,
-        help="Path to an M3 cube (.IMG/.HDR or .npz).",
+        help="Path to an M3 cube (.IMG/.HDR).",
     )
     parser.add_argument("--output-dir", type=str, default="artifacts_fe_al")
     args = parser.parse_args()

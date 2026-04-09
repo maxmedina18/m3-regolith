@@ -6,9 +6,10 @@ from pathlib import Path
 import joblib
 import numpy as np
 
-from lunar_m3.dev.synthetic import generate_synthetic_cube
-from lunar_m3.features import extract_feature_table
-from lunar_m3.models import train_baseline_classifier
+raise SystemExit(
+    "Synthetic training is disabled in the real-data-first research workflow. "
+    "If you need dev-only synthetic experiments, reintroduce them under scripts/dev explicitly."
+)
 
 
 def main() -> None:
@@ -32,4 +33,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

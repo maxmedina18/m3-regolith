@@ -3,18 +3,15 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-import numpy as np
-
 from lunar_m3.data_loading import load_m3_cube
 from lunar_m3.features import extract_feature_table
-from lunar_m3.models import predict_labels, train_baseline_classifier
 from lunar_m3.preprocessing import (
     clip_invalid_reflectance,
     normalize_by_reference_window,
     savgol_smooth,
 )
 from lunar_m3.validation import check_band_centers_plausible
-from lunar_m3.visualization import plot_label_map, plot_spectrum_comparison
+from lunar_m3.visualization import plot_spectrum_comparison
 
 
 def main() -> None:
@@ -23,16 +20,9 @@ def main() -> None:
         "--input",
         type=str,
         required=True,
-        help="Path to an M3 cube (.IMG/.HDR or .npz).",
+        help="Path to an M3 cube (.IMG/.HDR).",
     )
-    parser.add_argument("--model", type=str, default="logreg", choices=["logreg", "svm", "rf"])
     parser.add_argument("--output-dir", type=str, default="artifacts")
-    parser.add_argument("--seed", type=int, default=0)
-    parser.add_argument(
-        "--run-classification",
-        action="store_true",
-        help="Run supervised classification if labels are available (primarily for dev/synthetic).",
-    )
     args = parser.parse_args()
 
     cube = load_m3_cube(args.input)
@@ -42,18 +32,7 @@ def main() -> None:
     features = extract_feature_table(cube.data, cube.wavelengths)
     check_band_centers_plausible(features)
 
-    if args.run_classification and hasattr(cube, "synthetic_labels"):
-        y = np.asarray(getattr(cube, "synthetic_labels")).reshape(-1)
-        train_result = train_baseline_classifier(features, y, model=args.model, random_state=args.seed)
-        (out_dir / "classification_report.txt").write_text(train_result.report)
-        y_pred = predict_labels(train_result.pipeline, features)
-    else:
-        y_pred = None
-
     rows, cols, _ = cube.data.shape
-    if y_pred is not None:
-        pred_grid = y_pred.reshape(rows, cols)
-        plot_label_map(pred_grid, title="Predicted classes", output_path=out_dir / "predicted_map.png")
 
     x0, y0 = cols // 2, rows // 2
     raw = cube.get_pixel_spectrum(x0, y0)
