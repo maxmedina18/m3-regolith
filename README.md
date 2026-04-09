@@ -15,35 +15,78 @@ pip install -e .
 pip install -e ".[dev]"
 ```
 
-Run feature extraction on a real M³ reflectance cube:
+## Real-data workflow
+
+The intended workflow is:
+
+1) Load real M³ reflectance cube (`.IMG/.HDR`)
+2) Preprocess spectra (cleanup → normalization → smoothing → join mitigation)
+3) Extract physics-informed spectral features (continuum removal → band detection → band metrics → slope)
+4) Generate feature maps
+5) Run unsupervised clustering (GMM) in feature space
+6) Interpret clusters physically (mafic strength, feldspathic candidates, maturity proxy)
+
+### 1–3) Extract features from a real M³ cube
 
 ```bash
 PYTHONPATH=src python scripts/run_pipeline.py \
   --input /path/to/M3..._RFL.IMG \
-  --output-dir artifacts_real \
+  --output-dir artifacts
+```
 
-# QA: plot detected ~1 µm and ~2 µm bands for sample pixels
+This writes the canonical per-pixel table to:
+- `artifacts/features/features.csv`
+
+### 3) QA: plot detected ~1 µm and ~2 µm bands
+
+```bash
 PYTHONPATH=src python scripts/qa_plot_band_detection.py \
   --input /path/to/M3..._RFL.IMG \
-  --output-dir artifacts_real_qa \
+  --output-dir artifacts/qa_spectra \
   --num-samples 12
-
-# Optional: Fe and plagioclase/highlands proxy report
-PYTHONPATH=src python scripts/run_fe_al_report.py \
-  --input /path/to/M3..._RFL.IMG \
-  --output-dir artifacts_fe_al
 ```
+
+### 4) Generate feature maps
+
+```bash
+PYTHONPATH=src python scripts/make_feature_maps.py \
+  --features-csv artifacts/features/features.csv \
+  --output-dir artifacts/feature_maps
+```
+
+### 5) Run unsupervised clustering (GMM)
+
+```bash
+PYTHONPATH=src python scripts/run_unsupervised_clustering.py \
+  --features-csv artifacts/features/features.csv \
+  --output-dir artifacts/clustering \
+  --n-clusters 4
+```
+
+### 6) Physical interpretation (how to read the outputs)
+
+- High `bd_1um` + high `bd_2um` clusters are consistent with stronger mafic absorptions (Fe-bearing phases).
+- High `brightness_ref` + weak band depths clusters are consistent with more feldspathic/plagioclase-rich candidates.
+- High `slope_global` with suppressed band depths is consistent with a maturity/space-weathering proxy.
 
 ## Outputs (what gets generated and where)
 
 The primary pipeline entrypoint is `scripts/run_pipeline.py`.
 
-Given `--output-dir <DIR>`, it writes:
+The project uses a canonical research artifacts layout under `artifacts/`:
 
-- `<DIR>/features.csv`: one row per pixel with extracted spectral features
-- `<DIR>/classification_report.txt`: model metrics (synthetic mode only)
-- `<DIR>/predicted_map.png`: per-pixel predicted class map (synthetic mode only)
-- `<DIR>/spectrum_example.png`: example raw vs processed spectrum
+- `artifacts/features/`
+  - `features.csv`: one row per pixel with extracted spectral features
+- `artifacts/qa_spectra/`
+  - `qa_band_detection_*.png`: per-pixel QA plots with detected band bounds and centers
+  - `spectrum_example_*.png`: example raw vs processed spectrum
+- `artifacts/feature_maps/`
+  - `map_bd_1um.png`, `map_bc_1um.png`, `map_bd_2um.png`, `map_bc_2um.png`, `map_slope_global.png`, `map_brightness_ref.png`
+- `artifacts/clustering/`
+  - `cluster_map.png`: spatial map of argmax cluster label
+  - `cluster_prob_maps.png`: probability panels `P(cluster=k)` for uncertainty inspection
+  - `cluster_summary.csv`: cluster means/stds + pixel counts + interpretation scaffold
+  - `cluster_feature_means.csv`: compact mean table for quick comparison
 
 Interpretation tips (aligned with our project goals):
 
@@ -61,9 +104,9 @@ Interpretation tips (aligned with our project goals):
 
 ## Using real data
 
-The main supported input is PDS Imaging Node ENVI-style `.HDR` + `.IMG` reflectance products (e.g., `*_RFL.IMG`). A simple `.npz` loader is also supported.
+The supported input is PDS Imaging Node ENVI-style `.HDR` + `.IMG` reflectance products (e.g., `*_RFL.IMG`).
 
-If you have files like `*_RDN.HDR` and `*_RDN.IMG`, you can load them directly:
+If you have files like `*_RDN.HDR` and `*_RDN.IMG`, you can load them directly (note: radiance products are not ideal for band-depth mineral analysis without additional calibration):
 
 ```python
 from lunar_m3.data_loading import load_m3_cube
@@ -80,8 +123,7 @@ Downstream modules only require the `M3Cube` API.
 
 ## Reproducibility
 
-- Feature extraction is deterministic for a given cube.
-- Any optional modeling stages use fixed seeds where applicable.
+- Feature extraction and clustering are deterministic given a fixed cube and seed.
 
 ## Next steps
 
