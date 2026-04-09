@@ -2,7 +2,7 @@
 
 Research-grade Python project scaffold for analyzing NASA Moon Mineralogy Mapper (M³) hyperspectral reflectance data.
 
-This repository starts with a synthetic development pipeline (so you can run everything immediately) and is structured so real M³ ingestion can replace the synthetic loader without changing downstream code.
+This repository is organized around a real-data lunar spectroscopy workflow for NASA Moon Mineralogy Mapper (M³) reflectance cubes.
 
 ## Quickstart
 
@@ -15,13 +15,23 @@ pip install -e .
 pip install -e ".[dev]"
 ```
 
-Run the end-to-end baseline pipeline (synthetic cube):
+Run feature extraction on a real M³ reflectance cube:
 
 ```bash
-python scripts/run_pipeline.py --output-dir artifacts
+PYTHONPATH=src python scripts/run_pipeline.py \
+  --input /path/to/M3..._RFL.IMG \
+  --output-dir artifacts_real \
 
-# Fe + Al-proxy report (synthetic cube)
-python scripts/run_fe_al_report.py --output-dir artifacts_fe_al
+# QA: plot detected ~1 µm and ~2 µm bands for sample pixels
+PYTHONPATH=src python scripts/qa_plot_band_detection.py \
+  --input /path/to/M3..._RFL.IMG \
+  --output-dir artifacts_real_qa \
+  --num-samples 12
+
+# Optional: Fe and plagioclase/highlands proxy report
+PYTHONPATH=src python scripts/run_fe_al_report.py \
+  --input /path/to/M3..._RFL.IMG \
+  --output-dir artifacts_fe_al
 ```
 
 ## Outputs (what gets generated and where)
@@ -51,7 +61,7 @@ Interpretation tips (aligned with our project goals):
 
 ## Using real data
 
-Phase 1 uses a synthetic cube and a simple `.npz` loader. It also supports many PDS Imaging Node ENVI-style `.HDR` + `.IMG` products.
+The main supported input is PDS Imaging Node ENVI-style `.HDR` + `.IMG` reflectance products (e.g., `*_RFL.IMG`). A simple `.npz` loader is also supported.
 
 If you have files like `*_RDN.HDR` and `*_RDN.IMG`, you can load them directly:
 
@@ -70,8 +80,8 @@ Downstream modules only require the `M3Cube` API.
 
 ## Reproducibility
 
-- Deterministic synthetic data generation using fixed random seeds.
-- Modeling uses fixed seeds where applicable.
+- Feature extraction is deterministic for a given cube.
+- Any optional modeling stages use fixed seeds where applicable.
 
 ## Next steps
 

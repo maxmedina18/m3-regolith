@@ -82,7 +82,7 @@ Supported models:
 - Random Forest (nonlinear baseline, feature importance)
 - SVM (margin-based baseline)
 
-Phase 1 uses synthetic labels to prove plumbing. Real labels should be derived from literature-based spectral classes or expert annotation.
+Supervised labels for real pixels are not assumed. Downstream analysis is designed to work with physics-informed features and can be paired with unsupervised clustering or weak supervision.
 
 ## Validation philosophy
 

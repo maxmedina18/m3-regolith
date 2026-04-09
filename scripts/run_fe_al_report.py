@@ -25,7 +25,12 @@ class ProxyConfig:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", type=str, default="synthetic")
+    parser.add_argument(
+        "--input",
+        type=str,
+        required=True,
+        help="Path to an M3 cube (.IMG/.HDR or .npz).",
+    )
     parser.add_argument("--output-dir", type=str, default="artifacts_fe_al")
     args = parser.parse_args()
 

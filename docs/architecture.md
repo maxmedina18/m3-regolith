@@ -17,8 +17,9 @@
 ## Pipeline stages
 
 1. **Data loading** (`lunar_m3.data_loading`)
-   - Development loader supports `.npz` and synthetic cubes.
+   - Primary workflow loads real M³ ENVI-style `.HDR` + `.IMG` cubes.
    - Real M³ parsing is isolated to this module.
+   - Synthetic utilities are isolated under `lunar_m3.dev` for tests/dev only.
 
 2. **Preprocessing** (`lunar_m3.preprocessing`)
    - Normalization, smoothing, denoising, and continuum removal.

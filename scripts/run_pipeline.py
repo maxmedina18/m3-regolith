@@ -19,14 +19,19 @@ from lunar_m3.visualization import plot_label_map, plot_spectrum_comparison
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", type=str, default="synthetic")
+    parser.add_argument(
+        "--input",
+        type=str,
+        required=True,
+        help="Path to an M3 cube (.IMG/.HDR or .npz).",
+    )
     parser.add_argument("--model", type=str, default="logreg", choices=["logreg", "svm", "rf"])
     parser.add_argument("--output-dir", type=str, default="artifacts")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument(
-        "--skip-classification",
+        "--run-classification",
         action="store_true",
-        help="Extract features only (recommended for real M3 cubes without labels).",
+        help="Run supervised classification if labels are available (primarily for dev/synthetic).",
     )
     args = parser.parse_args()
 
@@ -37,9 +42,7 @@ def main() -> None:
     features = extract_feature_table(cube.data, cube.wavelengths)
     check_band_centers_plausible(features)
 
-    if args.skip_classification:
-        y_pred = None
-    elif hasattr(cube, "synthetic_labels"):
+    if args.run_classification and hasattr(cube, "synthetic_labels"):
         y = np.asarray(getattr(cube, "synthetic_labels")).reshape(-1)
         train_result = train_baseline_classifier(features, y, model=args.model, random_state=args.seed)
         (out_dir / "classification_report.txt").write_text(train_result.report)

@@ -11,7 +11,12 @@ from lunar_m3.features import extract_feature_table
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", type=str, default="synthetic")
+    parser.add_argument(
+        "--input",
+        type=str,
+        required=True,
+        help="Path to an M3 cube (.IMG/.HDR or .npz).",
+    )
     parser.add_argument("--output", type=str, default="data/processed/features.parquet")
     args = parser.parse_args()
 

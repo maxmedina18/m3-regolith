@@ -1,6 +1,6 @@
 import numpy as np
 
-from lunar_m3.data_loading import generate_synthetic_cube
+from lunar_m3.dev.synthetic import generate_synthetic_cube
 from lunar_m3.features import extract_feature_table
 from lunar_m3.models import train_baseline_classifier
 
