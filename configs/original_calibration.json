@@ -1,0 +1,14 @@
+{
+  "method_id": "trevino2026_eq1_original_constants_diagnostic_v1",
+  "source": "Trevino et al. (2026), LPSC 1102, equation 1, page 1",
+  "source_url": "https://www.hou.usra.edu/meetings/lpsc2026/pdf/1102.pdf",
+  "A": 17.427,
+  "B": -7.565,
+  "x_origin": 0.08,
+  "y_origin": 1.19,
+  "target_nm": [750.0, 950.0],
+  "angle_unit": "radians",
+  "primary_branch": "signed",
+  "revised_2026_parameters": null,
+  "status": "PROTOTYPE — DO NOT PUBLISH AS VALIDATED COMPOSITION"
+}

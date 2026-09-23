@@ -19,3 +19,16 @@ data/processed/
 *.egg-info/
 dist/
 build/
+
+# Local caches
+.cache/
+
+# Generated binary scientific arrays
+*.npz
+*.npy
+
+# Local M3 archive products
+*.IMG
+*.img
+*.HDR
+*.hdr

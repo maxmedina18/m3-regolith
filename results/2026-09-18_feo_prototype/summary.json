@@ -1,0 +1,392 @@
+{
+  "notice": "PROTOTYPE \u2022 NOT VALIDATED \u2022 DO NOT PUBLISH AS COMPOSITION",
+  "product": "M3G20081118T222604_V01",
+  "metadata": {
+    "shape": [
+      1182,
+      304,
+      85
+    ],
+    "dtype": "little-endian float32",
+    "interleave": "BIL",
+    "header_offset": 0,
+    "header_offset_explicit": false,
+    "expected_bytes": 122171520,
+    "binary_spot_checks": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1181,
+        303,
+        84
+      ],
+      [
+        591,
+        152,
+        42
+      ],
+      [
+        394,
+        76,
+        28
+      ],
+      [
+        788,
+        228,
+        56
+      ]
+    ],
+    "independent_reader_validated": false,
+    "header_vrt_max_difference_nm": 0.005000000000109139,
+    "bad_bands_1based": [
+      1,
+      2
+    ],
+    "thermal_correction_flag": "Y",
+    "photometry_correction_file": "M3G20111109_RFL_F_ALPHA_HIL.TAB",
+    "ground_truth_correction_file": "N/A",
+    "location": {
+      "referenced_name": "M3G20081118T222604_V03_LOC.IMG",
+      "present_in_data_dir": false,
+      "loaded": false
+    },
+    "geometry": {
+      "referenced_name": "M3G20081118T222604_V03_OBS.IMG",
+      "present_in_data_dir": false,
+      "loaded": false
+    }
+  },
+  "calibration": {
+    "method_id": "trevino2026_eq1_original_constants_diagnostic_v1",
+    "source": "Trevino et al. (2026), LPSC 1102, equation 1, page 1",
+    "source_url": "https://www.hou.usra.edu/meetings/lpsc2026/pdf/1102.pdf",
+    "A": 17.427,
+    "B": -7.565,
+    "x_origin": 0.08,
+    "y_origin": 1.19,
+    "target_nm": [
+      750.0,
+      950.0
+    ],
+    "angle_unit": "radians",
+    "primary_branch": "signed",
+    "revised_2026_parameters": null,
+    "status": "PROTOTYPE \u2014 DO NOT PUBLISH AS VALIDATED COMPOSITION"
+  },
+  "channels": {
+    "index750": 8,
+    "index950": 18,
+    "actual_nm": [
+      750.44,
+      950.06
+    ]
+  },
+  "total_pixels": 359328,
+  "calculable_pixels": 359138,
+  "excluded_pixels": 190,
+  "input_flags": {
+    "fill_or_nonfinite_either": 0,
+    "nonpositive_either_nonmissing": 190,
+    "above_one_either_nonmissing": 118902,
+    "note": "above-one values retained; flags may overlap. Positive-input policy is a prototype choice."
+  },
+  "branches": {
+    "signed": {
+      "finite_count": 359138,
+      "min": -43.23208373503269,
+      "p02": -33.99166288445417,
+      "median": -12.240308067439095,
+      "p98": 11.379985834228014,
+      "max": 22.132911386669168,
+      "below_zero": 288637,
+      "zero_to_100": 70501,
+      "above_100": 0
+    },
+    "wrap_after": {
+      "finite_count": 359138,
+      "min": -7.564904225896678,
+      "p02": -6.77518365703176,
+      "median": 78.26568264838983,
+      "p98": 101.10384469267139,
+      "max": 101.93205424972719,
+      "below_zero": 68308,
+      "zero_to_100": 273851,
+      "above_100": 16979
+    },
+    "wrap_before": {
+      "finite_count": 359138,
+      "min": -117.06197457411533,
+      "p02": -116.27225400525042,
+      "median": -31.23138769982883,
+      "p98": -8.393225655547258,
+      "max": -7.565016098491474,
+      "below_zero": 359138,
+      "zero_to_100": 0,
+      "above_100": 0
+    }
+  },
+  "two_pi_output_shift_pp": 109.49707034821864,
+  "sensitivity": {
+    "common_pixels": 359091,
+    "cases": [
+      {
+        "indices": [
+          7,
+          17
+        ],
+        "wavelengths_nm": [
+          730.48,
+          930.1
+        ]
+      },
+      {
+        "indices": [
+          7,
+          18
+        ],
+        "wavelengths_nm": [
+          730.48,
+          950.06
+        ]
+      },
+      {
+        "indices": [
+          7,
+          19
+        ],
+        "wavelengths_nm": [
+          730.48,
+          970.02
+        ]
+      },
+      {
+        "indices": [
+          8,
+          17
+        ],
+        "wavelengths_nm": [
+          750.44,
+          930.1
+        ]
+      },
+      {
+        "indices": [
+          8,
+          18
+        ],
+        "wavelengths_nm": [
+          750.44,
+          950.06
+        ]
+      },
+      {
+        "indices": [
+          8,
+          19
+        ],
+        "wavelengths_nm": [
+          750.44,
+          970.02
+        ]
+      },
+      {
+        "indices": [
+          9,
+          17
+        ],
+        "wavelengths_nm": [
+          770.4,
+          930.1
+        ]
+      },
+      {
+        "indices": [
+          9,
+          18
+        ],
+        "wavelengths_nm": [
+          770.4,
+          950.06
+        ]
+      },
+      {
+        "indices": [
+          9,
+          19
+        ],
+        "wavelengths_nm": [
+          770.4,
+          970.02
+        ]
+      }
+    ],
+    "range_pp": {
+      "finite_count": 359091,
+      "min": 0.10978226221596543,
+      "p02": 1.9780221334903563,
+      "median": 19.45982488357059,
+      "p98": 43.12463813677879,
+      "max": 79.2757059683448,
+      "below_zero": 0,
+      "zero_to_100": 359091,
+      "above_100": 0
+    },
+    "meaning": "adjacent-channel choice range, NOT confidence interval"
+  },
+  "selected_pixels": [
+    {
+      "name": "P1",
+      "row": 118,
+      "column": 152,
+      "selection_rule": "original center-column selection",
+      "R750": 0.5722007751464844,
+      "R950": 0.6027820706367493,
+      "ratio": 1.053445043800292,
+      "theta_signed_rad": 0.27063092692327423,
+      "feo_signed": -2.8487148365081003,
+      "feo_wrap_after": -2.8487148365081003,
+      "feo_wrap_before": -112.34578518472675,
+      "input_eligible": true,
+      "nine_case_range_pp": 45.460965736677714
+    },
+    {
+      "name": "P2",
+      "row": 354,
+      "column": 152,
+      "selection_rule": "original center-column selection",
+      "R750": 0.5039941668510437,
+      "R950": 0.5810043215751648,
+      "ratio": 1.152799694499007,
+      "theta_signed_rad": 0.08751367805172433,
+      "feo_signed": -6.0398991325926,
+      "feo_wrap_after": -6.0398991325926,
+      "feo_wrap_before": -115.53696948081124,
+      "input_eligible": true,
+      "nine_case_range_pp": 42.93488548986
+    },
+    {
+      "name": "P3",
+      "row": 590,
+      "column": 152,
+      "selection_rule": "original center-column selection",
+      "R750": 0.502341628074646,
+      "R950": 0.5180870890617371,
+      "ratio": 1.031344129387484,
+      "theta_signed_rad": 0.3593471301930494,
+      "feo_signed": -1.3026575621257281,
+      "feo_wrap_after": -1.3026575621257281,
+      "feo_wrap_before": -110.79972791034437,
+      "input_eligible": true,
+      "nine_case_range_pp": 43.72344053335102
+    },
+    {
+      "name": "P4",
+      "row": 826,
+      "column": 152,
+      "selection_rule": "original center-column selection",
+      "R750": 0.45201441645622253,
+      "R950": 0.5218116044998169,
+      "ratio": 1.1544136326243795,
+      "theta_signed_rad": 0.0953683857367205,
+      "feo_signed": -5.903015141766172,
+      "feo_wrap_after": -5.903015141766172,
+      "feo_wrap_before": -115.40008548998482,
+      "input_eligible": true,
+      "nine_case_range_pp": 45.62335918729882
+    },
+    {
+      "name": "P5",
+      "row": 1063,
+      "column": 152,
+      "selection_rule": "original center-column selection",
+      "R750": 0.4897019565105438,
+      "R950": 0.49381154775619507,
+      "ratio": 1.0083920253758731,
+      "theta_signed_rad": 0.41724193286116573,
+      "feo_signed": -0.2937248360284652,
+      "feo_wrap_after": -0.2937248360284652,
+      "feo_wrap_before": -109.7907951842471,
+      "input_eligible": true,
+      "nine_case_range_pp": 40.586329867413184
+    },
+    {
+      "name": "X1",
+      "row": 591,
+      "column": 30,
+      "selection_rule": "fixed cross-column diagnostic selection",
+      "R750": 0.34138166904449463,
+      "R950": 0.5546124577522278,
+      "ratio": 1.6246111260295624,
+      "theta_signed_rad": -1.0293370032580895,
+      "feo_signed": -25.503255955778727,
+      "feo_wrap_after": 83.99381439243992,
+      "feo_wrap_before": -25.503255955778727,
+      "input_eligible": true,
+      "nine_case_range_pp": 33.04989630328579
+    },
+    {
+      "name": "X2",
+      "row": 591,
+      "column": 90,
+      "selection_rule": "fixed cross-column diagnostic selection",
+      "R750": 0.7894556522369385,
+      "R950": 0.46325692534446716,
+      "ratio": 0.5868055083674673,
+      "theta_signed_rad": 0.7046226773692765,
+      "feo_signed": 4.714459398514381,
+      "feo_wrap_after": 4.714459398514381,
+      "feo_wrap_before": -104.78261094970426,
+      "input_eligible": true,
+      "nine_case_range_pp": 9.83122923832887
+    },
+    {
+      "name": "X3",
+      "row": 591,
+      "column": 212,
+      "selection_rule": "fixed cross-column diagnostic selection",
+      "R750": 0.6574660539627075,
+      "R950": 0.8238592743873596,
+      "ratio": 1.2530826031576228,
+      "theta_signed_rad": -0.10880891274673321,
+      "feo_signed": -9.46121292243732,
+      "feo_wrap_after": 100.03585742578133,
+      "feo_wrap_before": -9.46121292243732,
+      "input_eligible": true,
+      "nine_case_range_pp": 32.01628763777461
+    },
+    {
+      "name": "X4",
+      "row": 591,
+      "column": 272,
+      "selection_rule": "fixed cross-column diagnostic selection",
+      "R750": 0.4574185013771057,
+      "R950": 0.36537599563598633,
+      "ratio": 0.798778349664441,
+      "theta_signed_rad": 0.8033541151426891,
+      "feo_signed": 6.435052164591641,
+      "feo_wrap_after": 6.435052164591641,
+      "feo_wrap_before": -103.062018183627,
+      "input_eligible": true,
+      "nine_case_range_pp": 31.14818990036548
+    }
+  ],
+  "state": {
+    "calculation_executed": true,
+    "chemically_validated": false,
+    "geolocated": false,
+    "revised_fit_reproduced": false,
+    "agent_service_deployed": false
+  },
+  "warnings": [
+    "Unresolved stripes and jagged spectra",
+    "Unresolved published angle convention",
+    "Original coefficients only; revised fit absent",
+    "No independent reader or reference-chemistry validation",
+    "No geographic coordinates loaded",
+    "No calibrated uncertainty",
+    "0\u2013100 outputs are not certified plausible for this calibration"
+  ]
+}

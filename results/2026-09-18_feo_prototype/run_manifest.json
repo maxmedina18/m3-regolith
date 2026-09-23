@@ -1,0 +1,116 @@
+{
+  "created_utc": "2026-09-18T07:14:35.324865+00:00",
+  "command": [
+    "outputs/m3-feo-prototype/src/inspect_cube.py",
+    "--data-dir",
+    "/Users/max/Desktop/M3 UGR/cube set"
+  ],
+  "python": "3.10.13 (main, Jan 29 2026, 16:04:51) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "numpy": "2.2.6",
+  "matplotlib": "3.10.8",
+  "data_dir": "/Users/max/Desktop/M3 UGR/cube set",
+  "inputs": {
+    "M3G20081118T222604_V01_L2.LBL": {
+      "bytes": 7315,
+      "sha256": "1d4f86e043fb7136067602c78389aa152b83b96516ba3bc0861109cf7acce3f7",
+      "publisher_checksum_verified": false
+    },
+    "M3G20081118T222604_V01_RFL.HDR": {
+      "bytes": 37989,
+      "sha256": "74ebdad784f04a387832587dc96b824fe0b28bd340ac9c5144750d29e004f509",
+      "publisher_checksum_verified": false
+    },
+    "M3G20081118T222604_V01_RFL.IMG": {
+      "bytes": 122171520,
+      "sha256": "a3305d6effc94407cb27b8efc88a261a220608ce4aa312091550f57b02dc846a",
+      "publisher_checksum_verified": false
+    },
+    "M3G20081118T222604_V01_RFL.IMG.vrt": {
+      "bytes": 49275,
+      "sha256": "d2ee8c3965e2e2877afff147601709e7010aec1a76f8b8462d378bfa071c7371",
+      "publisher_checksum_verified": false
+    },
+    "M3G20081118T222604_V01_SUP.HDR": {
+      "bytes": 291,
+      "sha256": "a40065465842a48cd7fd1ec1613af76137fd6275851997f91f8449fe3bf160e1",
+      "publisher_checksum_verified": false
+    },
+    "M3G20081118T222604_V01_SUP.IMG": {
+      "bytes": 4311936,
+      "sha256": "2751ba4e97b5088bd9f532fed61a7e511411873fd4b64d5a080145672a8292bf",
+      "publisher_checksum_verified": false
+    },
+    "M3G20081118T222604_V01_SUP.IMG.vrt": {
+      "bytes": 1816,
+      "sha256": "6a199de08c5d1092a91c1305723e10a287ae3827cd2fd43c9d7941f8ca274499",
+      "publisher_checksum_verified": false
+    }
+  },
+  "source_sha256": "176d244c9bc944c01033d4160429eb2b8982af2f78b51e060b13cae5486c6261",
+  "config_sha256": "612a7a5cb6f190cc5458f567781ce7189133f2a3cf97ccb812ca56f155fbbeda",
+  "calibration": {
+    "method_id": "trevino2026_eq1_original_constants_diagnostic_v1",
+    "source": "Trevino et al. (2026), LPSC 1102, equation 1, page 1",
+    "source_url": "https://www.hou.usra.edu/meetings/lpsc2026/pdf/1102.pdf",
+    "A": 17.427,
+    "B": -7.565,
+    "x_origin": 0.08,
+    "y_origin": 1.19,
+    "target_nm": [
+      750.0,
+      950.0
+    ],
+    "angle_unit": "radians",
+    "primary_branch": "signed",
+    "revised_2026_parameters": null,
+    "status": "PROTOTYPE \u2014 DO NOT PUBLISH AS VALIDATED COMPOSITION"
+  },
+  "outputs": {
+    "01_provisional_feo.png": {
+      "bytes": 1888509,
+      "sha256": "140050d52d0314b265889c73815ff52f090d69fcc8c9b6f60cd12c34b2d4f57b"
+    },
+    "02_angle_conventions.png": {
+      "bytes": 142721,
+      "sha256": "9607514c46864aa903c2eb06fd054066fdf783ee9797a6b4858839d93c0b1046"
+    },
+    "03_pixel_walkthrough.png": {
+      "bytes": 188885,
+      "sha256": "3fed79743c02f26ce55a09793b06c0d5927f4ce8611106898e9b2cdf2b7ec521"
+    },
+    "04_channel_sensitivity.png": {
+      "bytes": 599643,
+      "sha256": "563ed27357293b69fac3e67d9eeb561954ab252f8e9f78409412ae5f103af76d"
+    },
+    "05_architecture.png": {
+      "bytes": 141254,
+      "sha256": "11d502a93ee51a78d1605196bb64b2775faee3846ac616055f7b70d6586bdbe5"
+    },
+    "prototype_arrays.npz": {
+      "bytes": 22003232,
+      "sha256": "b8068257a3ad7fee9a4c49889cc598a6aa4c9f95e5d73199e5b1479574866628"
+    },
+    "selected_pixels.csv": {
+      "bytes": 1982,
+      "sha256": "5935407f8fd10e1ef75835fcd15d338e61e1a5871843682384430675844c70b3"
+    },
+    "selected_spectra.npz": {
+      "bytes": 3577,
+      "sha256": "087b924f7f5b25c2fcaefa13917364b1503af2f9cbd64a5b4e86cfed52511441"
+    },
+    "summary.json": {
+      "bytes": 9952,
+      "sha256": "4175b46055aba12f4e14d4e123a7c4ab4e529d850c9d4f9d06278dd50d076b05"
+    }
+  },
+  "orientation": "native rows increase down, columns right; no geotransform",
+  "uncertainty": "not calibrated",
+  "formulae": {
+    "signed": "-atan2(y,x)",
+    "wrap_after": "mod(-atan2(y,x),2*pi)",
+    "wrap_before": "-mod(atan2(y,x),2*pi)"
+  },
+  "masks": "fill/nonfinite; selected bad bands rejected; nonpositive R750/R950 excluded; exact translated origin excluded; >1 retained",
+  "processing": "no smoothing, normalization, destriping, extra correction, refitting, clipping or projection"
+}
