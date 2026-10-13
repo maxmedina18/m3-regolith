@@ -1,0 +1,190 @@
+{
+  "created_utc": "2026-10-13T05:09:00.519627+00:00",
+  "observation": "M3G20090107T011405",
+  "random_seed": 20261012,
+  "coordinates_per_band": 105,
+  "source_validation": [
+    {
+      "role": "RFL",
+      "band": 1,
+      "file": "M3G20090107T011405_band_1.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "role": "RFL",
+      "band": 2,
+      "file": "M3G20090107T011405_band_2.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "role": "RFL",
+      "band": 3,
+      "file": "M3G20090107T011405_band_3.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.9303054694416204e-11
+    },
+    {
+      "role": "RFL",
+      "band": 9,
+      "file": "M3G20090107T011405_band_9.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.0860366479211763e-10
+    },
+    {
+      "role": "RFL",
+      "band": 19,
+      "file": "M3G20090107T011405_band_19.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.949417126143274e-10
+    },
+    {
+      "role": "RFL",
+      "band": 40,
+      "file": "M3G20090107T011405_band_40.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.94602206413397e-10
+    },
+    {
+      "role": "RFL",
+      "band": 60,
+      "file": "M3G20090107T011405_band_60.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.983215368126181e-10
+    },
+    {
+      "role": "RFL",
+      "band": 85,
+      "file": "M3G20090107T011405_band_85.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.972381673074011e-10
+    },
+    {
+      "role": "LOC",
+      "band": 1,
+      "file": "M3G20090107T011405_lon.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "role": "LOC",
+      "band": 2,
+      "file": "M3G20090107T011405_lat.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "role": "LOC",
+      "band": 3,
+      "file": "M3G20090107T011405_radius.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 0.0
+    },
+    {
+      "role": "OBS",
+      "band": 1,
+      "file": "M3G20090107T011405_OBS_1.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.921874960928108e-07
+    },
+    {
+      "role": "OBS",
+      "band": 2,
+      "file": "M3G20090107T011405_OBS_2.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.9462890672202775e-08
+    },
+    {
+      "role": "OBS",
+      "band": 3,
+      "file": "M3G20090107T011405_OBS_3.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.921874960928108e-07
+    },
+    {
+      "role": "OBS",
+      "band": 4,
+      "file": "M3G20090107T011405_OBS_4.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.906005912630462e-08
+    },
+    {
+      "role": "OBS",
+      "band": 5,
+      "file": "M3G20090107T011405_OBS_5.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.999999703159119e-08
+    },
+    {
+      "role": "OBS",
+      "band": 6,
+      "file": "M3G20090107T011405_OBS_6.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.993508675267067e-15
+    },
+    {
+      "role": "OBS",
+      "band": 7,
+      "file": "M3G20090107T011405_OBS_7.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 0.0004999999946448952
+    },
+    {
+      "role": "OBS",
+      "band": 8,
+      "file": "M3G20090107T011405_OBS_8.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.411620935229621e-08
+    },
+    {
+      "role": "OBS",
+      "band": 9,
+      "file": "M3G20090107T011405_OBS_9.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.912109261567821e-07
+    },
+    {
+      "role": "OBS",
+      "band": 10,
+      "file": "M3G20090107T011405_OBS_10.tsv",
+      "tested": 105,
+      "passed": 105,
+      "max_absolute_difference": 4.98596164355547e-10
+    }
+  ],
+  "elevation": {
+    "tested": 105,
+    "passed": 105,
+    "max_absolute_difference": 0.0
+  },
+  "total_tests": 2310,
+  "total_passed": 2310,
+  "failures": [],
+  "limitations": [
+    "Sampled pixel validation, not exhaustive full-scene validation.",
+    "RFL bad bands are checked against expected masking.",
+    "Does not independently verify RFL/V02 geospatial alignment.",
+    "Does not independently validate physical calibration."
+  ]
+}

@@ -32,3 +32,25 @@ build/
 *.img
 *.HDR
 *.hdr
+
+# Isolated validation / GUI environments and local runs
+.venv-*/
+outputs/
+configs/*.local.json
+# Advisor material stays local until redistribution permission is established
+external/advisor/*.py
+
+# M3 Stage 1 local scientific data and generated exports
+/data/m3_stage1_inputs/
+/results/stage1_gdal/
+/results/stage1_memmap/
+
+# Local installers
+/Miniforge3-MacOSX-arm64.sh
+
+# Raw validation session recordings
+/docs/validation/**/terminal_session.log
+/docs/validation/**/command_history.txt
+
+# Local-only validation artifacts
+/results/2026-10-12_extractor_comparison/
