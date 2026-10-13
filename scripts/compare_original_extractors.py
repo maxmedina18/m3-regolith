@@ -37,8 +37,20 @@ def dump(path, data):
     Path(path).write_text(json.dumps(data, indent=2, allow_nan=False) + "\n")
 
 
+def require_snapshot_wavelength_unit(config):
+    """These fixed-product comparisons require explicit protocol nanometres.
+
+    Frozen legacy readers retain their historical implementation/API; they must
+    not be replaced with the current reader or passed its new keyword argument.
+    This guard establishes units explicitly, never from numerical magnitude.
+    """
+    if config.get("wavelength_unit") != "nm":
+        raise ValueError("Snapshot comparison requires explicit wavelength_unit=nm")
+
+
 def worker(args):
     config = json.loads(args.config.read_text())
+    require_snapshot_wavelength_unit(config)
     dest = args.output / args.worker
     dest.mkdir()
     meta = {"python": sys.version, "executable": sys.executable,
@@ -108,6 +120,7 @@ def metrics(a, b, mask=None):
 
 
 def main(args):
+    require_snapshot_wavelength_unit(json.loads(args.config.read_text()))
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
     if sha(args.advisor) != ADVISOR_HASH:
@@ -118,6 +131,7 @@ def main(args):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(subprocess.check_output(["git", "show", f"{COMMIT}:src/lunar_m3/{name}"], cwd=ROOT))
     config = json.loads(args.config.read_text())
+    require_snapshot_wavelength_unit(config)
     dump(out / "input_config.json", config)
     dump(out / "coordinates.json", {"indexing": "zero-based source row, column; bands 1..85", "coordinates": COORDS})
     inputs = {Path(v) for k, v in config.items() if k.endswith(("_hdr", "_vrt", "_label"))}

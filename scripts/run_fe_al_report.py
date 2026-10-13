@@ -32,13 +32,14 @@ def main() -> None:
         help="Path to an M3 cube (.IMG/.HDR).",
     )
     parser.add_argument("--output-dir", type=str, default="artifacts_fe_al")
+    parser.add_argument("--wavelength-unit", choices=["nm", "um"], help="Explicit override only when header units are missing")
     args = parser.parse_args()
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    cube = load_m3_cube(args.input)
-    features = extract_feature_table(cube.data, cube.wavelengths)
+    cube = load_m3_cube(args.input, wavelength_unit=args.wavelength_unit)
+    features = extract_feature_table(cube.data, cube.wavelengths, nodata=cube.nodata, band_good=cube.band_good)
     check_band_centers_plausible(features)
 
     cfg = ProxyConfig()

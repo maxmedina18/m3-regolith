@@ -18,9 +18,10 @@ def main() -> None:
         help="Path to an M3 cube (.IMG/.HDR).",
     )
     parser.add_argument("--output", type=str, default="data/processed/processed_cube.npz")
+    parser.add_argument("--wavelength-unit", choices=["nm", "um"], help="Explicit override only when header units are missing")
     args = parser.parse_args()
 
-    cube = load_m3_cube(args.input)
+    cube = load_m3_cube(args.input, wavelength_unit=args.wavelength_unit)
     rows, cols, bands = cube.data.shape
     processed = np.zeros((rows, cols, bands), dtype=np.float32)
 

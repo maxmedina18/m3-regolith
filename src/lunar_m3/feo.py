@@ -20,7 +20,7 @@ import sys
 import xml.etree.ElementTree as ET
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 os.environ.setdefault('MPLCONFIGDIR', str(ROOT / '.cache' / 'matplotlib'))
 import matplotlib
 matplotlib.use('Agg')

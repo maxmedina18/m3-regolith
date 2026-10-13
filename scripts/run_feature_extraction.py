@@ -18,10 +18,11 @@ def main() -> None:
         help="Path to an M3 cube (.IMG/.HDR).",
     )
     parser.add_argument("--output", type=str, default="data/processed/features.parquet")
+    parser.add_argument("--wavelength-unit", choices=["nm", "um"], help="Explicit override only when header units are missing")
     args = parser.parse_args()
 
-    cube = load_m3_cube(args.input)
-    features = extract_feature_table(cube.data, cube.wavelengths)
+    cube = load_m3_cube(args.input, wavelength_unit=args.wavelength_unit)
+    features = extract_feature_table(cube.data, cube.wavelengths, nodata=cube.nodata, band_good=cube.band_good)
 
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)

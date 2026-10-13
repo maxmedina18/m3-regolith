@@ -36,7 +36,7 @@ def spectral_slope(
     if np.count_nonzero(mask) < 3:
         return float("nan")
 
-    wts = np.ones_like(r, dtype=float) if weights is None else np.asarray(weights, dtype=float)
+    wts = np.ones_like(r, dtype=float) if weights is None else np.array(weights, dtype=float, copy=True)
     if wts.shape != r.shape:
         raise ValueError("weights must have same shape as reflectance")
 
@@ -81,10 +81,12 @@ def reflectance_ratio(
 
     w = np.asarray(wavelengths_um, dtype=float)
     r = np.asarray(reflectance, dtype=float)
-    if not np.any(np.isfinite(r)):
+    if w.ndim != 1 or r.shape != w.shape or len(w) < 2 or not np.all(np.isfinite(w)) or not np.all(np.diff(w) > 0):
+        raise ValueError("Expected matching spectrum and finite increasing wavelengths")
+    if not np.all(np.isfinite(r)) or min(numerator_um, denominator_um) < w[0] or max(numerator_um, denominator_um) > w[-1]:
         return float("nan")
 
-    r_filled = np.where(np.isfinite(r), r, np.nanmedian(r[np.isfinite(r)]))
+    r_filled = r
 
     r_num = float(np.interp(float(numerator_um), w, r_filled))
     r_den = float(np.interp(float(denominator_um), w, r_filled))

@@ -14,6 +14,8 @@ def continuum_remove_linear(
 
     The continuum is a straight line between the reflectance at the region
     endpoints (interpolated if needed). Continuum-removed reflectance is `R / C`.
+    Any nonfinite reflectance invalidates both complete outputs (all NaN),
+    including nonfinite samples outside the requested region. No imputation.
 
     Args:
         wavelengths_um: Wavelength array in microns.
@@ -27,27 +29,29 @@ def continuum_remove_linear(
 
     w = np.asarray(wavelengths_um, dtype=float)
     r = np.asarray(reflectance, dtype=float)
+    if w.ndim != 1 or r.shape != w.shape or len(w) < 2 or not np.all(np.isfinite(w)) or not np.all(np.diff(w) > 0):
+        raise ValueError("Expected matching spectrum and finite increasing wavelengths")
 
     start, end = float(region_um[0]), float(region_um[1])
-    if start >= end:
+    if not np.isfinite(start + end) or start >= end:
         raise ValueError(f"Invalid region_um: {region_um}")
 
+    if not np.all(np.isfinite(r)):
+        return np.full_like(r, np.nan), np.full_like(r, np.nan)
+
     region_mask = (w >= start) & (w <= end)
-    if not np.any(region_mask):
-        return r.copy(), np.ones_like(r)
+    if start < w[0] or end > w[-1] or not np.any(region_mask):
+        return np.full_like(r, np.nan), np.full_like(r, np.nan)
 
     w_region = w[region_mask]
     r_region = r[region_mask]
 
-    if not np.all(np.isfinite(r_region)):
-        median = np.nanmedian(r_region[np.isfinite(r_region)])
-        r_region = np.where(np.isfinite(r_region), r_region, median)
-
-    r_start = float(np.interp(start, w_region, r_region))
-    r_end = float(np.interp(end, w_region, r_region))
+    # Use the full grid to bracket off-grid endpoints. Never impute missing data.
+    r_start = float(np.interp(start, w, r))
+    r_end = float(np.interp(end, w, r))
 
     continuum_region = r_start + (r_end - r_start) * (w_region - start) / (end - start)
-    continuum_region = np.clip(continuum_region, eps, np.inf)
+    continuum_region = np.where(continuum_region > eps, continuum_region, np.nan)
 
     r_cr_region = r_region / continuum_region
 
