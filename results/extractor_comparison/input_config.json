@@ -1,0 +1,14 @@
+{
+  "prefix": "M3G20090107T011405",
+  "rfl_hdr": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.HDR",
+  "rfl_vrt": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.IMG.vrt",
+  "rfl_label": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_L2.LBL",
+  "loc_hdr": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_LOC.HDR",
+  "obs_hdr": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_OBS.HDR",
+  "loc_label": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_L1B.LBL",
+  "obs_label": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_L1B.LBL",
+  "wavelength_unit": "nm",
+  "expect_lines": 11935,
+  "expect_samples": 304,
+  "expect_rfl_bands": 85
+}

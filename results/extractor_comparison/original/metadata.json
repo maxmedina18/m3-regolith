@@ -1,0 +1,59 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "executable": "${EXTRACTION_PYTHON}",
+  "numpy": "2.1.3",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "products": {
+    "rfl": {
+      "shape": [
+        11935,
+        304,
+        85
+      ],
+      "dtype": "float32",
+      "interleave": "bil",
+      "byte_order": 0,
+      "header_offset": 0,
+      "data_type": 4,
+      "nodata": null,
+      "bbl": null,
+      "metadata_limitation": "Original public header object does not preserve NoData, BBL, or other source metadata.",
+      "img_path": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.IMG",
+      "hdr_path": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.HDR"
+    },
+    "loc": {
+      "shape": [
+        11935,
+        304,
+        3
+      ],
+      "dtype": "float32",
+      "interleave": "bil",
+      "byte_order": 0,
+      "header_offset": 0,
+      "data_type": 5,
+      "nodata": null,
+      "bbl": null,
+      "metadata_limitation": "Original public header object does not preserve NoData, BBL, or other source metadata.",
+      "img_path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_LOC.IMG",
+      "hdr_path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_LOC.HDR"
+    },
+    "obs": {
+      "shape": [
+        11935,
+        304,
+        10
+      ],
+      "dtype": "float32",
+      "interleave": "bil",
+      "byte_order": 0,
+      "header_offset": 0,
+      "data_type": 4,
+      "nodata": null,
+      "bbl": null,
+      "metadata_limitation": "Original public header object does not preserve NoData, BBL, or other source metadata.",
+      "img_path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_OBS.IMG",
+      "hdr_path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_OBS.HDR"
+    }
+  }
+}

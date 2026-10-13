@@ -1,0 +1,11 @@
+{
+  "csv_rows": 935,
+  "unique_pixels": 11,
+  "csv_max_absolute_error": 0.0,
+  "csv_mae": 0.0,
+  "csv_rmse": 0.0,
+  "original_loc_equals_advisor_cast_float32": true,
+  "both_workers_python_3_12_14_numpy_2_1_3": true,
+  "plot_visually_inspected": true,
+  "artifact_hashes_verified": true
+}

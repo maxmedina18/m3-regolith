@@ -1,0 +1,142 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 4815,
+    "sha256": "174d614d47e1d7596ca43085cf3279330eec375099c7b2cfd59ed85cc8e72509"
+  },
+  {
+    "path": "advisor/loc_pixels.npy",
+    "bytes": 392,
+    "sha256": "09ac87dd5e807e2bc44cb8ac7669d876d22cbc29a9e9ceec6f21cb062b051046"
+  },
+  {
+    "path": "advisor/metadata.json",
+    "bytes": 24497,
+    "sha256": "47039a35213d74143f2bc517f14b48e249fd8f5d46d84c502a0037802f5c9167"
+  },
+  {
+    "path": "advisor/obs_pixels.npy",
+    "bytes": 568,
+    "sha256": "6d67e3415a7347a6df781fe4c3c4071fe416abf238a5f6853007fb6c6c924eec"
+  },
+  {
+    "path": "advisor/rfl_pixels.npy",
+    "bytes": 3868,
+    "sha256": "7e4a3393b49e767e1eedf93975cd501ea2a6c9ea63528330a8462b0e029b2224"
+  },
+  {
+    "path": "advisor/wavelengths_native_nm.npy",
+    "bytes": 808,
+    "sha256": "ffbb67aa3fce5a0a44351af981edc3cff29ad13552fb6cd8fdccc934781434a1"
+  },
+  {
+    "path": "advisor/wavelengths_um.npy",
+    "bytes": 808,
+    "sha256": "1fddad4dcf8095a7fd76625ad7bb5c8ccb7acefdc805ba0dce42798659ab2392"
+  },
+  {
+    "path": "advisor.log",
+    "bytes": 81,
+    "sha256": "beb48c70987c3d4e168f952091826ae2c5f33d579aac4637065da219ee4cbfbc"
+  },
+  {
+    "path": "ancillary_comparison.csv",
+    "bytes": 8606,
+    "sha256": "1b434bae9e24a765545269d645a817a8bb94370eb6bbebc52f4c5d0425490211"
+  },
+  {
+    "path": "comparison_metrics.json",
+    "bytes": 38387,
+    "sha256": "24e7b41633fb3f938aa1f10f593932866cda7f86fcbb5960f0044040926903b1"
+  },
+  {
+    "path": "comparison_spectra.csv",
+    "bytes": 74938,
+    "sha256": "7f9a2cfacc49599596ea480f5aed18767503eb4340ae2a6342e079f68eab96ad"
+  },
+  {
+    "path": "comparison_summary.md",
+    "bytes": 3414,
+    "sha256": "9650c5468746f1ee743810b4647c0defd891c6c5a5bd0cdb8032f471d6985ae2"
+  },
+  {
+    "path": "coordinates.json",
+    "bytes": 457,
+    "sha256": "c9191bf6936514745dd6aa5ac39c0caa8ab6d418a9ec060138886dd3faf61033"
+  },
+  {
+    "path": "input_config.json",
+    "bytes": 618,
+    "sha256": "0c21cbb3c41bb0286cddbd2363960f9656366fa3a1ed07ca8d76aa0594319331"
+  },
+  {
+    "path": "original/loc_pixels.npy",
+    "bytes": 260,
+    "sha256": "ef2b1e18f27e04587f09498258dd6691fb5c176b1102485fed2ab28196ecac32"
+  },
+  {
+    "path": "original/metadata.json",
+    "bytes": 1733,
+    "sha256": "067897702e0d92cec603f8d8a107df112e6e4b02e29d85c95bfda593b37873ed"
+  },
+  {
+    "path": "original/obs_pixels.npy",
+    "bytes": 568,
+    "sha256": "6d67e3415a7347a6df781fe4c3c4071fe416abf238a5f6853007fb6c6c924eec"
+  },
+  {
+    "path": "original/rfl_pixels.npy",
+    "bytes": 3868,
+    "sha256": "7e4a3393b49e767e1eedf93975cd501ea2a6c9ea63528330a8462b0e029b2224"
+  },
+  {
+    "path": "original/wavelengths_um.npy",
+    "bytes": 808,
+    "sha256": "1fddad4dcf8095a7fd76625ad7bb5c8ccb7acefdc805ba0dce42798659ab2392"
+  },
+  {
+    "path": "original.log",
+    "bytes": 82,
+    "sha256": "d04576c730a2bc99ba433bb77573775844365b3e5140b56bce980d2cbf7f3a86"
+  },
+  {
+    "path": "original_source/lunar_m3/__init__.py",
+    "bytes": 97,
+    "sha256": "b66ef31b512f5d5606e362e6dfcb1b63b31a48b8c53fd1562c6702b83c0eefc9"
+  },
+  {
+    "path": "original_source/lunar_m3/data_loading/__init__.py",
+    "bytes": 227,
+    "sha256": "fcaff51885527c63658b62560db5e60294930d9d1e76ab8967b3f16f259a8303"
+  },
+  {
+    "path": "original_source/lunar_m3/data_loading/m3_loader.py",
+    "bytes": 2219,
+    "sha256": "e3c9e612814a84177f72fdc6e14ae52eb24414522ce50c4ecc80b3864082c8cb"
+  },
+  {
+    "path": "original_source/lunar_m3/data_loading/pds3_envi.py",
+    "bytes": 4462,
+    "sha256": "330d704758cdc17779ae49817cad8b575fa97b2df4aaf203c32e417127a57d17"
+  },
+  {
+    "path": "provenance.json",
+    "bytes": 5374,
+    "sha256": "5e3e413b369186d3665f82e1d9ca7bca304dc8ac86a018b0e0316831f636bbce"
+  },
+  {
+    "path": "spectra_overlay.pdf",
+    "bytes": 32354,
+    "sha256": "9b21086141111ebb544cd5ff6087068f514fd9a2fd8a56d88783a148c339b1c1"
+  },
+  {
+    "path": "spectra_overlay.png",
+    "bytes": 338883,
+    "sha256": "c6f00b35a288929f7867f51e6663258390de948368f59627e277233f94f0cdcb"
+  },
+  {
+    "path": "verification.json",
+    "bytes": 289,
+    "sha256": "097ae5ca1fe8e357aebb94ae1ae61fce8092234c98c6d4f6ae47e2ae63a2a94c"
+  }
+]

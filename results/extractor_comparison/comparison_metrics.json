@@ -1,0 +1,1207 @@
+{
+  "scope": "11 source-native pixels, all 85 RFL + 3 LOC + 10 OBS bands; no full-scene export",
+  "products": {
+    "rfl": {
+      "raw": {
+        "selected_count": 935,
+        "finite_pair_count": 935,
+        "mismatched_values": 0,
+        "max_absolute_error": 0.0,
+        "mean_absolute_error": 0.0,
+        "rmse": 0.0,
+        "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+      },
+      "valid_only": {
+        "selected_count": 913,
+        "finite_pair_count": 913,
+        "mismatched_values": 0,
+        "max_absolute_error": 0.0,
+        "mean_absolute_error": 0.0,
+        "rmse": 0.0,
+        "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+      },
+      "invalid_mask_mismatches": 0,
+      "invalid_pairs": 22,
+      "per_band": [
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        }
+      ]
+    },
+    "loc": {
+      "raw": {
+        "selected_count": 33,
+        "finite_pair_count": 33,
+        "mismatched_values": 33,
+        "max_absolute_error": 0.05976344761438668,
+        "mean_absolute_error": 0.01161011639946042,
+        "rmse": 0.022882202805509923,
+        "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+      },
+      "valid_only": {
+        "selected_count": 33,
+        "finite_pair_count": 33,
+        "mismatched_values": 33,
+        "max_absolute_error": 0.05976344761438668,
+        "mean_absolute_error": 0.01161011639946042,
+        "rmse": 0.022882202805509923,
+        "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+      },
+      "invalid_mask_mismatches": 0,
+      "invalid_pairs": 0,
+      "per_band": [
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 11,
+          "max_absolute_error": 5.17730605054112e-07,
+          "mean_absolute_error": 2.9702887809951956e-07,
+          "rmse": 3.341968441086177e-07,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 11,
+          "max_absolute_error": 9.29204652777571e-07,
+          "mean_absolute_error": 3.8945890558992535e-07,
+          "rmse": 5.068705943108116e-07,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 11,
+          "max_absolute_error": 0.05976344761438668,
+          "mean_absolute_error": 0.03482966271059757,
+          "rmse": 0.03963313784358807,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        }
+      ]
+    },
+    "obs": {
+      "raw": {
+        "selected_count": 110,
+        "finite_pair_count": 110,
+        "mismatched_values": 0,
+        "max_absolute_error": 0.0,
+        "mean_absolute_error": 0.0,
+        "rmse": 0.0,
+        "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+      },
+      "valid_only": {
+        "selected_count": 110,
+        "finite_pair_count": 110,
+        "mismatched_values": 0,
+        "max_absolute_error": 0.0,
+        "mean_absolute_error": 0.0,
+        "rmse": 0.0,
+        "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+      },
+      "invalid_mask_mismatches": 0,
+      "invalid_pairs": 0,
+      "per_band": [
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        },
+        {
+          "selected_count": 11,
+          "finite_pair_count": 11,
+          "mismatched_values": 0,
+          "max_absolute_error": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "rfl": {
+      "shape": {
+        "original": [
+          11935,
+          304,
+          85
+        ],
+        "advisor": [
+          11935,
+          304,
+          85
+        ],
+        "equal": true
+      },
+      "dtype": {
+        "original": "float32",
+        "advisor": "float32",
+        "equal": true
+      },
+      "interleave": {
+        "original": "bil",
+        "advisor": "bil",
+        "equal": true
+      },
+      "byte_order": {
+        "original": 0,
+        "advisor": 0,
+        "equal": true
+      },
+      "header_offset": {
+        "original": 0,
+        "advisor": 0,
+        "equal": true
+      },
+      "data_type": {
+        "original": 4,
+        "advisor": 4,
+        "equal": true
+      },
+      "nodata": {
+        "original": null,
+        "advisor": -999.0,
+        "equal": false
+      },
+      "bbl": {
+        "original": null,
+        "advisor": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "equal": false
+      }
+    },
+    "loc": {
+      "shape": {
+        "original": [
+          11935,
+          304,
+          3
+        ],
+        "advisor": [
+          11935,
+          304,
+          3
+        ],
+        "equal": true
+      },
+      "dtype": {
+        "original": "float32",
+        "advisor": "float64",
+        "equal": false
+      },
+      "interleave": {
+        "original": "bil",
+        "advisor": "bil",
+        "equal": true
+      },
+      "byte_order": {
+        "original": 0,
+        "advisor": 0,
+        "equal": true
+      },
+      "header_offset": {
+        "original": 0,
+        "advisor": 0,
+        "equal": true
+      },
+      "data_type": {
+        "original": 5,
+        "advisor": 5,
+        "equal": true
+      },
+      "nodata": {
+        "original": null,
+        "advisor": null,
+        "equal": true
+      },
+      "bbl": {
+        "original": null,
+        "advisor": [],
+        "equal": false
+      }
+    },
+    "obs": {
+      "shape": {
+        "original": [
+          11935,
+          304,
+          10
+        ],
+        "advisor": [
+          11935,
+          304,
+          10
+        ],
+        "equal": true
+      },
+      "dtype": {
+        "original": "float32",
+        "advisor": "float32",
+        "equal": true
+      },
+      "interleave": {
+        "original": "bil",
+        "advisor": "bil",
+        "equal": true
+      },
+      "byte_order": {
+        "original": 0,
+        "advisor": 0,
+        "equal": true
+      },
+      "header_offset": {
+        "original": 0,
+        "advisor": 0,
+        "equal": true
+      },
+      "data_type": {
+        "original": 4,
+        "advisor": 4,
+        "equal": true
+      },
+      "nodata": {
+        "original": null,
+        "advisor": null,
+        "equal": true
+      },
+      "bbl": {
+        "original": null,
+        "advisor": [],
+        "equal": false
+      }
+    }
+  },
+  "wavelengths_um": {
+    "selected_count": 85,
+    "finite_pair_count": 85,
+    "mismatched_values": 0,
+    "max_absolute_error": 0.0,
+    "mean_absolute_error": 0.0,
+    "rmse": 0.0,
+    "criterion": "Exact equality; matching NaNs accepted; errors calculated on finite pairs."
+  },
+  "wavelength_units": "Source has no explicit wavelength unit. Original uses magnitude heuristic; comparison converts advisor native numeric wavelengths from nm to um per protocol. Agreement does not independently establish units."
+}
