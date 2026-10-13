@@ -16,23 +16,85 @@ At the current stage, generated FeO values are **provisional diagnostic outputs*
 
 ---
 
-## Current Status
+## Current Status — October 2026
 
-The repository currently includes:
+**Stage-1 extraction validation has advanced substantially; independent NASAView checks and ancillary-product alignment remain open.** The current scientific focus is trustworthy data ingestion, not validated FeO mapping.
 
-- real-data M³ reflectance loading and inspection
-- reproducible cube diagnostics
-- 750 nm and 950 nm reflectance extraction
-- a provisional implementation of the published FeO relation
-- explicit testing of angle/sign conventions
-- data-quality diagnostics
-- reproducible prototype outputs and run metadata
-- unit tests for the FeO prototype
-- earlier spectral-feature and GMM infrastructure retained for later experiments
+### Stage-1 Extraction Validation (October 12, 2026)
 
-The current FeO implementation is intentionally treated as a **reproduction candidate rather than a validated abundance model**.
+The tested observation is `M3G20090107T011405` (11,935 lines × 304 samples; 85 RFL bands, 3 LOC planes, and 10 OBS planes).
 
-Calibration transfer, angle convention, scene matching, geolocation, and comparison with reference chemistry remain active validation tasks.
+Two related but distinct comparisons are documented:
+
+**1. Original project reader vs. advisor-supplied reader**
+
+Both implementations were executed in separate processes at 11 shared pixel coordinates.
+
+Across those samples:
+
+- **935 RFL values matched exactly.**
+- **110 OBS values matched exactly.**
+- **85 wavelengths matched exactly.**
+- LOC values did not match bit-for-bit.
+
+The historical project reader converted source Float64 LOC data to Float32, resulting in maximum absolute differences of approximately:
+
+| Quantity | Maximum Absolute Difference |
+|---|---:|
+| Longitude | 5.18 × 10⁻⁷ degrees |
+| Latitude | 9.29 × 10⁻⁷ degrees |
+| Lunar radius | 0.0598 metres |
+
+Both readers use NumPy memmap, so this is a cross-implementation check, **not a comparison of fully independent decoding technologies**.
+
+The advisor extractor's full 99-table CLI export was not part of this particular comparison.
+
+**2. Advisor Stage-1 extractor: GDAL-array vs. NumPy-memmap**
+
+Each backend produced **99 TSV tables**, with **99/99 identical output hashes**.
+
+Separately, sampled checks using calculated source-binary offsets passed **2,310/2,310 comparisons**.
+
+| Product | Successful Checks |
+|---|---:|
+| RFL | 840/840 |
+| LOC | 315/315 |
+| OBS | 1,050/1,050 |
+| Derived elevation | 105/105 |
+| **Total** | **2,310/2,310** |
+
+These checks cover selected pixels and bands, not every source pixel.
+
+### Validation Evidence
+
+The following files preserve the numerical comparisons, procedures, and validation results:
+
+**Original vs. advisor extractor comparison**
+
+- [`comparison_summary.md`](results/extractor_comparison/comparison_summary.md) — Readable summary of the comparison.
+- [`comparison_metrics.json`](results/extractor_comparison/comparison_metrics.json) — Detailed numerical comparison metrics.
+- [`comparison_spectra.csv`](results/extractor_comparison/comparison_spectra.csv) — Sampled spectral values.
+- [`results/extractor_comparison/README.md`](results/extractor_comparison/README.md) — Procedures, artifacts, and provenance.
+
+**GDAL vs. NumPy memmap validation**
+
+- [`Stage-1 Validation Documentation`](docs/validation/2026-10-12_stage1/README.md) — Validation methodology.
+- [`validation_results.json`](docs/validation/2026-10-12_stage1/validation_results.json) — Output-hash comparisons.
+- [`source_pixel_validation.json`](docs/validation/2026-10-12_stage1/source_pixel_validation.json) — Direct source-binary checks.
+
+### Outstanding Validation
+
+The following steps remain before Stage-1 validation can be considered complete:
+
+- Independently compare numerical pixel values from original PDS products using NASAView.
+- Confirm NASAView indexing conventions, pixel orientation, and band numbering.
+- Resolve ancillary-product compatibility. The V01 RFL label references V03 ancillary products, whereas the recorded extraction uses V02 LOC/OBS.
+- Finalize source provenance, checksums, environment records, and unresolved warnings.
+- Independently validate FeO calibration, scene matching, reference chemistry, and mapping.
+
+Matching image dimensions alone does not establish geographic alignment between different product versions.
+
+The September FeO prototype and earlier feature/GMM tools remain available as exploratory research, not validated mineralogical or geochemical products.
 
 ---
 
@@ -42,14 +104,16 @@ Calibration transfer, angle convention, scene matching, geolocation, and compari
 
 1. Identify the exact M³ observation and product version.
 2. Verify binary layout, dimensions, wavelengths, units, and metadata.
-3. Compare the current reader against an independently configured compatible reader.
+3. Compare implementations and decoding backends, recording numerical coverage, precision, and limitations.
 4. Characterize invalid values, striping, and other data-quality issues.
 
 ### Phase 2 — Geometry and Geolocation
 
 Recover and validate the associated M³ location and observation products.
 
-The reflectance cube alone is not sufficient for a scientifically defensible lunar map. LOC/OBS information is required to associate image pixels with lunar coordinates and observing geometry.
+The reflectance cube alone is not sufficient for a scientifically defensible lunar map.
+
+LOC/OBS information is required to associate image pixels with lunar coordinates and observing geometry.
 
 ### Phase 3 — FeO Reproduction
 
@@ -88,11 +152,11 @@ Only after these gates are satisfied should the project produce a validated geor
 
 The repository also contains earlier infrastructure for:
 
-- continuum removal
+- Continuum removal
 - ~1 µm and ~2 µm absorption features
-- band depth, center, and area
-- spectral slopes
-- feature maps
+- Band depth, center, and area
+- Spectral slopes
+- Feature maps
 - Gaussian mixture model (GMM) clustering
 
 These components are retained as experimental tools for later stages of the project.
@@ -140,32 +204,33 @@ python -m pytest -v
 
 ```text
 m3-regolith/
-├── configs/
-│   └── original_calibration.json
-├── data/
-│   ├── manifests/
-│   ├── reference/
-│   └── raw/                  # ignored by Git
+├── configs/                          # FeO calibration configuration
 ├── docs/
-│   ├── architecture.md
-│   ├── methodology.md
-│   ├── roadmap.md
-│   └── research/
-│       ├── research_plan.md
-│       ├── equation_register.md
-│       ├── prototype_architecture.md
-│       ├── agent_operator_prompt.md
-│       └── M3_Feo_prototype_report_2026-09-18.pdf
-├── notebooks/
+│   ├── research/                     # September prototype and research plans
+│   └── validation/
+│       └── 2026-10-12_stage1/        # October Stage-1 validation evidence
 ├── results/
-│   └── 2026-09-18_feo_prototype/
-├── scripts/
+│   ├── 2026-09-18_feo_prototype/      # Provisional FeO results
+│   └── extractor_comparison/         # Original vs. advisor reader evidence
+├── scripts/                          # Processing and validation entry points
 ├── src/
 │   └── lunar_m3/
-│       └── feo.py
-└── tests/
-    └── test_feo_prototype.py
+│       ├── stage1.py                 # Stage-1 functionality
+│       ├── data_loading/            # Active readers
+│       └── feo.py                    # Provisional FeO implementation
+└── tests/                             # Unit and source-validation tests
 ```
+
+### Important Validation Scripts
+
+- `scripts/compare_original_extractors.py`
+- `scripts/validate_gdal_sources.py`
+- `scripts/validate_extractor_comparison.py`
+- `tests/validation/validate_stage1_source.py`
+
+Historical reader source under `results/extractor_comparison/original_source/` is retained as comparison provenance. It is **not the active package implementation**.
+
+The advisor-supplied standalone extractor is not distributed here as a tracked source file; its recorded checksum and execution metadata are preserved in the comparison artifacts.
 
 ---
 
@@ -203,15 +268,15 @@ These outputs document the behavior of the provisional implementation and should
 
 ## Research Documentation
 
-Current research documentation is available under `docs/research/`.
+Research documentation is available under `docs/research/`.
 
 Important files include:
 
-- `research_plan.md` — first-four-weeks research plan and validation gates
-- `equation_register.md` — equations, definitions, assumptions, and provenance
-- `prototype_architecture.md` — architecture of the provisional FeO workflow
-- `M3_Feo_prototype_report_2026-09-18.pdf` — documented prototype run and current findings
-- `agent_operator_prompt.md` — proposed future automation/operator design
+- `research_plan.md` — Initial research plan and validation gates.
+- `equation_register.md` — Equations, definitions, assumptions, and provenance.
+- `prototype_architecture.md` — Architecture of the provisional FeO workflow.
+- `M3_Feo_prototype_report_2026-09-18.pdf` — Documented prototype run and findings.
+- `agent_operator_prompt.md` — Proposed future automation/operator design.
 
 Automation is not considered a substitute for the deterministic scientific pipeline and is deferred until the underlying reader, calibration, validation, and mapping workflow is established.
 
@@ -221,12 +286,12 @@ Automation is not considered a substitute for the deterministic scientific pipel
 
 Earlier development produced infrastructure for:
 
-- spectral preprocessing
-- feature extraction
-- feature mapping
-- continuum removal
-- absorption-band analysis
-- unsupervised GMM clustering
+- Spectral preprocessing
+- Feature extraction
+- Feature mapping
+- Continuum removal
+- Absorption-band analysis
+- Unsupervised GMM clustering
 
 Existing scripts include tools for:
 
@@ -253,16 +318,16 @@ The repository should store information required to identify and reproduce a dat
 
 Data provenance should include, where available:
 
-- product identifiers
-- observation identifiers
-- archive source
-- product version
-- filenames
-- checksums
-- acquisition metadata
-- processing level
-- associated LOC/OBS products
-- role of each product in the analysis
+- Product identifiers
+- Observation identifiers
+- Archive source
+- Product version
+- Filenames
+- Checksums
+- Acquisition metadata
+- Processing level
+- Associated LOC/OBS products
+- Role of each product in the analysis
 
 Local raw data belong under:
 
@@ -280,19 +345,21 @@ The project aims for deterministic and auditable scientific runs.
 
 A reproducible run should preserve:
 
-- input product identifiers
-- input hashes where appropriate
-- calibration constants
-- configuration
-- code version
-- quality masks
-- processing choices
-- diagnostic outputs
-- run metadata
+- Input product identifiers
+- Input hashes where appropriate
+- Calibration constants
+- Configuration
+- Code version
+- Quality masks
+- Processing choices
+- Diagnostic outputs
+- Run metadata
 
 The current prototype records diagnostic outputs and run metadata so calculations can be reproduced and audited.
 
-At the current development checkpoint, the integrated project test suite passes under Python 3.11.9.
+Historical tests were reported passing under Python 3.11.9 at an earlier checkpoint.
+
+The full integrated test suite has not been rerun as part of this README update; the October validation records document their own specific checks.
 
 ---
 
@@ -308,8 +375,8 @@ Likewise, an FeO estimate alone is insufficient to establish construction-materi
 
 ## Near-Term Roadmap
 
-1. Independently verify M³ reading and data quality.
-2. Obtain and align the appropriate LOC/OBS products.
+1. Complete NASAView pixel-level verification and document the Stage-1 audit.
+2. Resolve V01 RFL versus V02/V03 LOC/OBS compatibility and verify spatial alignment.
 3. Resolve the published FeO calibration implementation.
 4. Validate FeO estimates against appropriately matched reference chemistry.
 5. Generate a quality-masked, georeferenced FeO swath.
