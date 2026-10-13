@@ -107,12 +107,13 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--x", type=int, default=None, help="Optional fixed x pixel index.")
     parser.add_argument("--y", type=int, default=None, help="Optional fixed y pixel index.")
+    parser.add_argument("--wavelength-unit", choices=["nm", "um"], help="Explicit override only when header units are missing")
     args = parser.parse_args()
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    cube = load_m3_cube(args.input)
+    cube = load_m3_cube(args.input, wavelength_unit=args.wavelength_unit)
     rows, cols, _ = cube.data.shape
 
     if args.x is not None or args.y is not None:

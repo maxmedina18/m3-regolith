@@ -19,7 +19,7 @@ from .spectral_indices import reflectance_ratio, spectral_slope
 class FeatureConfig:
     band1_search_um: tuple[float, float] = (0.85, 1.30)
     band2_search_um: tuple[float, float] = (1.70, 2.50)
-    join_region_um: tuple[float, float] = (1.325, 1.355)
+    join_region_um: tuple[float, float] | None = None
     join_downweight: float = 0.2
     ref_window_um: tuple[float, float] = (1.45, 1.55)
 
@@ -29,6 +29,8 @@ def extract_feature_table(
     wavelengths_um: np.ndarray,
     *,
     config: FeatureConfig | None = None,
+    nodata: float | None = None,
+    band_good: np.ndarray | None = None,
 ) -> pd.DataFrame:
     """Extract a feature table for every pixel in a cube.
 
@@ -42,17 +44,37 @@ def extract_feature_table(
     """
 
     cfg = config or FeatureConfig()
-    rows, cols, _ = cube_data.shape
+    wavelengths_um = np.asarray(wavelengths_um, dtype=float)
+    if wavelengths_um.ndim != 1 or not np.all(np.isfinite(wavelengths_um)) or not np.all(np.diff(wavelengths_um) > 0):
+        raise ValueError("Wavelengths must be finite and strictly increasing")
+    rows, cols, bands = cube_data.shape
+    if bands != len(wavelengths_um):
+        raise ValueError("Band/wavelength mismatch")
+    good = np.ones(bands, dtype=bool) if band_good is None else np.asarray(band_good, dtype=bool)
+    if good.shape != (bands,):
+        raise ValueError("Bad-band mask shape mismatch")
+    # Exclude header-bad bands from all operations. No replacement values.
+    wavelengths_um = wavelengths_um[good]
+    feature_names = ["brightness_ref", "slope_visnir", "slope_swir", "slope_global",
+                     "ratio_950_750", "ratio_2000_1500", "band1_left_um", "band1_right_um",
+                     "bd_1um", "bc_1um", "ba_1um", "band2_left_um", "band2_right_um",
+                     "bd_2um", "bc_2um", "ba_2um"]
 
     records: list[dict[str, float | int]] = []
     for y in range(rows):
         for x in range(cols):
-            r0 = cube_data[y, x, :]
+            r0 = cube_data[y, x, good]
+            # Conservative analysis policy: do not invent missing reflectances or
+            # call an entirely nonpositive spectrum an absorption measurement.
+            valid = np.isfinite(r0) & (r0 >= 0)
+            if nodata is not None:
+                valid &= r0 != nodata
+            if len(r0) < 5 or not valid.all() or not np.any(r0 > 0):
+                records.append({"x": x, "y": y, **{k: np.nan for k in feature_names}})
+                continue
 
-            # 1) Basic cleanup to keep downstream math stable.
-            #    This step is meant to remove NaNs/Infs and clip reflectance into
-            #    a physically reasonable range.
-            r_clean = clip_invalid_reflectance(r0)
+            # 1) Copy validated reflectance without clipping or imputation.
+            r_clean = np.asarray(r0, dtype=float).copy()
 
             # 2) Track an absolute brightness proxy before normalization.
             #    This lets the model use both composition-like features
@@ -72,16 +94,12 @@ def extract_feature_table(
             # 4) Mitigate the ~1.34 µm VNIR/SWIR join. We do two things:
             #    - interpolate across the join for band metrics and ratios
             #    - downweight it for slope fitting
-            r, join_mask = mitigate_instrument_join(
-                wavelengths_um,
-                r,
-                join_region_um=cfg.join_region_um,
-                mode="interpolate",
-            )
-
-            # Per-band weights used by weighted slope fitting.
             wts = np.ones_like(r, dtype=float)
-            wts[join_mask] *= float(cfg.join_downweight)
+            if cfg.join_region_um is not None:
+                r, join_mask = mitigate_instrument_join(
+                    wavelengths_um, r, join_region_um=cfg.join_region_um, mode="interpolate"
+                )
+                wts[join_mask] *= float(cfg.join_downweight)
 
             # 5) Continuum removal happens before band measurement.
             #    We do a seed continuum removal over broad search windows to
@@ -132,24 +150,18 @@ def extract_feature_table(
                     r,
                     region_um=(0.70, 1.30),
                     weights=wts,
-                    downweight_regions_um=[cfg.join_region_um],
-                    downweight_factor=cfg.join_downweight,
                 ),
                 "slope_swir": spectral_slope(
                     wavelengths_um,
                     r,
                     region_um=(1.70, 2.50),
                     weights=wts,
-                    downweight_regions_um=[cfg.join_region_um],
-                    downweight_factor=cfg.join_downweight,
                 ),
                 "slope_global": spectral_slope(
                     wavelengths_um,
                     r,
                     region_um=(0.70, 2.50),
                     weights=wts,
-                    downweight_regions_um=[cfg.join_region_um],
-                    downweight_factor=cfg.join_downweight,
                 ),
                 "ratio_950_750": reflectance_ratio(wavelengths_um, r, numerator_um=0.95, denominator_um=0.75),
                 "ratio_2000_1500": reflectance_ratio(wavelengths_um, r, numerator_um=2.00, denominator_um=1.50),
