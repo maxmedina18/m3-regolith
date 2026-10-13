@@ -1,0 +1,128 @@
+{
+  "baseline_commit": "f176272f81c0307eddd273ba45c7ce7e2a3797fe",
+  "run_utc": "2026-10-13T01:27:09Z",
+  "input_files": [
+    {
+      "path": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_L2.LBL",
+      "bytes": 7323,
+      "sha256": "482a934ab54d9dbbe75275da879be4835fb6d6336f3eaebca1a7715578b099f2"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.HDR",
+      "bytes": 37989,
+      "sha256": "ef34bc6615cbd8fc3b6225ae768b48bc578fc130781250b7352284381de2164b"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.IMG",
+      "bytes": 1233601600,
+      "sha256": "56cc7eb3f5c7979c26c7ea64f7636023fe2099aeec56773f7f38031fbf78dc73"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V01/M3G20090107T011405_V01_RFL.IMG.vrt",
+      "bytes": 49531,
+      "sha256": "ce2bd936599665f5ab81ab73c76bbd764fb9b852b2f822dee956ab4b60e08506"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_L1B.LBL",
+      "bytes": 23440,
+      "sha256": "03b2b3c3728b3e019f21aca8a8e57ab1f5f9cf9db0be9ba729f4a4d97a9bdc91"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_LOC.HDR",
+      "bytes": 373,
+      "sha256": "c2f66f0083674cf4db4d909b725eaad7442addc4fa327d3ab7d0f297044697b7"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_LOC.IMG",
+      "bytes": 87077760,
+      "sha256": "cb22891344467ac5a253503a92d75430b84b7bd6c13d3c494c7bdb47a2082f72"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_OBS.HDR",
+      "bytes": 708,
+      "sha256": "309835e38fb2d86511af62bafd71e79177238106bf25fc498684315de900ead7"
+    },
+    {
+      "path": "${M3_DATA_ROOT}/V02/M3G20090107T011405_V02_OBS.IMG",
+      "bytes": 145129600,
+      "sha256": "986420820a7713dd70d4c55e31a0d2f918069c9d4bb018732d696b6113771b94"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "${REPO_ROOT}/scripts/compare_original_extractors.py",
+      "sha256": "4e779becc53e1fa223a76bf7370921e39397a0226708907ff54c4a3d0fb3bd81"
+    },
+    {
+      "path": "${REPO_ROOT}/external/advisor/M3_stage1_extractor_v2.py",
+      "sha256": "d190296d0ab7c7d61754c32857354b5342e4622738077e5637738ab2215ba855"
+    },
+    {
+      "path": "${REPO_ROOT}/results/extractor_comparison/original_source/lunar_m3/__init__.py",
+      "sha256": "b66ef31b512f5d5606e362e6dfcb1b63b31a48b8c53fd1562c6702b83c0eefc9"
+    },
+    {
+      "path": "${REPO_ROOT}/results/extractor_comparison/original_source/lunar_m3/data_loading/__init__.py",
+      "sha256": "fcaff51885527c63658b62560db5e60294930d9d1e76ab8967b3f16f259a8303"
+    },
+    {
+      "path": "${REPO_ROOT}/results/extractor_comparison/original_source/lunar_m3/data_loading/m3_loader.py",
+      "sha256": "e3c9e612814a84177f72fdc6e14ae52eb24414522ce50c4ecc80b3864082c8cb"
+    },
+    {
+      "path": "${REPO_ROOT}/results/extractor_comparison/original_source/lunar_m3/data_loading/pds3_envi.py",
+      "sha256": "330d704758cdc17779ae49817cad8b575fa97b2df4aaf203c32e417127a57d17"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "${EXTRACTION_PYTHON}",
+        "-B",
+        "${REPO_ROOT}/scripts/compare_original_extractors.py",
+        "--worker",
+        "original",
+        "--config",
+        "${REPO_ROOT}/results/extractor_comparison/input_config.json",
+        "--output",
+        "${REPO_ROOT}/results/extractor_comparison",
+        "--advisor",
+        "${REPO_ROOT}/external/advisor/M3_stage1_extractor_v2.py"
+      ],
+      "shell": "${EXTRACTION_PYTHON} -B ${REPO_ROOT}/scripts/compare_original_extractors.py --worker original --config ${REPO_ROOT}/results/extractor_comparison/input_config.json --output ${REPO_ROOT}/results/extractor_comparison --advisor ${REPO_ROOT}/external/advisor/M3_stage1_extractor_v2.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.3935347079532221
+    },
+    {
+      "argv": [
+        "${EXTRACTION_PYTHON}",
+        "-B",
+        "${REPO_ROOT}/scripts/compare_original_extractors.py",
+        "--worker",
+        "advisor",
+        "--config",
+        "${REPO_ROOT}/results/extractor_comparison/input_config.json",
+        "--output",
+        "${REPO_ROOT}/results/extractor_comparison",
+        "--advisor",
+        "${REPO_ROOT}/external/advisor/M3_stage1_extractor_v2.py"
+      ],
+      "shell": "${EXTRACTION_PYTHON} -B ${REPO_ROOT}/scripts/compare_original_extractors.py --worker advisor --config ${REPO_ROOT}/results/extractor_comparison/input_config.json --output ${REPO_ROOT}/results/extractor_comparison --advisor ${REPO_ROOT}/external/advisor/M3_stage1_extractor_v2.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.21053049992769957
+    }
+  ],
+  "scope": "11 source-native pixels, all 85 RFL + 3 LOC + 10 OBS bands; no full-scene export",
+  "comparison_environment": {
+    "python": "3.11.9 (main, Apr  6 2026, 16:31:41) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "numpy": "2.4.4",
+    "matplotlib": "3.10.8"
+  },
+  "orchestrator_command": "${ANALYSIS_PYTHON} scripts/compare_original_extractors.py",
+  "advisor_hash_unchanged_after_run": true,
+  "publication": {
+    "path_policy": "Host prefixes replaced with explicit placeholders; historical commands are templates, not literal original paths.",
+    "unchanged": "Numerical arrays, CSVs, metrics, plots, logs, source snapshots and historical input/source hashes.",
+    "inventory": "Paths relative to results directory; hashes describe published bytes."
+  }
+}
